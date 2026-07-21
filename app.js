@@ -44,6 +44,60 @@ const HOLIDAY_OVERRIDES = {
 
 const STORAGE_KEY = "atsubetsu-bus-timetable";
 const STORAGE_FETCHED_AT = "atsubetsu-bus-fetched-at";
+const BABY_MESSAGE_KEY = "atsubetsu-bus-baby-message";
+
+const BABY_MESSAGES = [
+  "だっこの予約、入ってます！",
+  "おかえりの練習して待ってるよ！",
+  "バスさん、はやめにお願いしますっ！",
+  "今日の報告、聞く準備できてます！",
+  "帰ってきたら、にこにこ見せるね！",
+  "おみやげは笑顔でだいじょうぶだよ！",
+  "玄関の方、ちらちら見てます！",
+  "ねんねする前に会えたらうれしいな！",
+  "おつかれさま係、待機中です！",
+  "帰ってきたら、全力で見つめます！",
+  "今日もいっぱいがんばったね！",
+  "バスより先に気持ちは到着してるよ！",
+  "抱っこチャージ、満タン希望です！",
+  "足音センサー、起動してます！",
+  "ただいまって聞くの、すきかも！",
+  "今日のかわいい担当、待ってます！",
+  "帰り道、気をつけてきてね！",
+  "会えたらまず笑う予定です！",
+  "まだかな、まだかなってしてるよ！",
+  "おかえりしたら、拍手したい気分！",
+  "今日は多めに見つめる予定です！",
+  "帰ってきた音、聞きのがさないよ！",
+  "にこにこ貯金、たまってます！",
+  "ただいま待ち、はじめました！",
+  "今日のだっこ枠、空いてます！",
+  "会えたら目で追いかけます！",
+  "おかえりの顔、予約済みです！",
+  "帰ってきたら、まず見せてね！",
+  "今日も会えるの、楽しみです！",
+  "おてての準備、できてます！",
+  "笑顔の在庫、あります！",
+  "帰宅センサー、反応待ちです！",
+  "会えたら、にやっとします！",
+  "早く会いたい気持ちです！",
+  "帰り道、ゆっくり安全にね！",
+  "ただいまの声、待ってます！",
+  "今日は甘える気分かも！",
+  "おかえり係、出番待ちです！",
+  "帰ってきたら、じーっと見るよ！",
+  "今日の主役、帰宅待ちです！",
+  "会えたら安心しちゃうかも！",
+  "おつかれさま、言いたい気分！",
+  "だっこ待ち列、先頭です！",
+  "帰ってくる予感、してます！",
+  "おかえり練習、上達中です！",
+  "会えたら、ほっぺが動きます！",
+  "今日も待ってたよって顔します！",
+  "帰宅したら、目が合う予定！",
+  "ただいまには笑顔で返します！",
+  "おかえりの瞬間、楽しみです！"
+];
 
 const state = {
   timetable: null,
@@ -73,6 +127,7 @@ const elements = {
   resultList: document.getElementById("resultList"),
   segments: document.querySelectorAll(".segment"),
   scheduleList: document.getElementById("scheduleList"),
+  babyLine: document.getElementById("babyLine"),
   toast: document.getElementById("toast")
 };
 
@@ -80,6 +135,7 @@ init();
 
 function init() {
   setInputsToNow();
+  setBabyMessage();
   bindEvents();
   updateClock();
   loadTimetable();
@@ -92,6 +148,33 @@ function init() {
       render();
     }
   }, 30000);
+}
+
+function setBabyMessage() {
+  if (!elements.babyLine) return;
+  elements.babyLine.textContent = pickBabyMessage();
+}
+
+function pickBabyMessage() {
+  let previous = "";
+
+  try {
+    previous = localStorage.getItem(BABY_MESSAGE_KEY) || "";
+  } catch (error) {
+    previous = "";
+  }
+
+  const candidates = BABY_MESSAGES.filter((message) => message !== previous);
+  const pool = candidates.length > 0 ? candidates : BABY_MESSAGES;
+  const message = pool[Math.floor(Math.random() * pool.length)] || BABY_MESSAGES[0];
+
+  try {
+    localStorage.setItem(BABY_MESSAGE_KEY, message);
+  } catch (error) {
+    // localStorage may be unavailable in some private browsing modes.
+  }
+
+  return message;
 }
 
 function bindEvents() {
