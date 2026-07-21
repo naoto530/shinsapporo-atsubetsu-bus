@@ -1,5 +1,5 @@
-const APP_CACHE = "atsubetsu-bus-app-v7";
-const DATA_CACHE = "atsubetsu-bus-data-v7";
+const APP_CACHE = "atsubetsu-bus-app-v8";
+const DATA_CACHE = "atsubetsu-bus-data-v8";
 const APP_ASSETS = [
   "./",
   "./index.html",
