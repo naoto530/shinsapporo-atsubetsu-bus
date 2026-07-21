@@ -344,19 +344,25 @@ function render() {
 function renderDataStatus() {
   const metadata = state.timetable?.metadata;
   if (state.dataSource === "loading") {
-    elements.dataVersion.textContent = "読込中";
+    elements.dataVersion.textContent = "情報更新日：読込中";
+    elements.dataVersion.removeAttribute("title");
+    elements.dataVersion.removeAttribute("aria-label");
     return;
   }
 
   const version = metadata?.version || "時刻表";
-  const updatedAt = metadata?.updatedAt ? `更新 ${metadata.updatedAt}` : "";
+  const updatedAt = metadata?.updatedAt || "未取得";
   const sourceLabel =
     state.dataSource === "backup"
       ? "保存済み"
       : state.dataSource === "embedded"
         ? "プレビュー"
         : "最新版";
-  elements.dataVersion.textContent = `${sourceLabel} / ${version}${updatedAt ? ` / ${updatedAt}` : ""}`;
+  const displayLabel = `情報更新日：${updatedAt}`;
+  const fullLabel = `${displayLabel} / ${sourceLabel} / ${version}`;
+  elements.dataVersion.textContent = displayLabel;
+  elements.dataVersion.title = fullLabel;
+  elements.dataVersion.setAttribute("aria-label", fullLabel);
 }
 
 function renderTabs() {
