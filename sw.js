@@ -1,11 +1,12 @@
-const APP_CACHE = "atsubetsu-bus-app-v2";
-const DATA_CACHE = "atsubetsu-bus-data-v2";
+const APP_CACHE = "atsubetsu-bus-app-v4";
+const DATA_CACHE = "atsubetsu-bus-data-v4";
 const APP_ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
   "./manifest.webmanifest",
+  "./assets/baby.png",
   "./assets/icon.svg",
   "./assets/icon-192.png",
   "./assets/icon-512.png",

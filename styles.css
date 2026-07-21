@@ -63,6 +63,67 @@ input:focus-visible {
   margin-bottom: 16px;
 }
 
+.baby-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  margin: -4px 0 10px;
+  border: 1px solid rgba(246, 184, 75, 0.34);
+  border-radius: 8px;
+  padding: 7px 8px;
+  background: linear-gradient(135deg, #fff9e8, #f2fbf7);
+  box-shadow: 0 6px 16px rgba(58, 74, 64, 0.08);
+}
+
+.baby-photo {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 5px 12px rgba(32, 37, 36, 0.16);
+  object-fit: cover;
+}
+
+.baby-bubble {
+  position: relative;
+  min-width: 0;
+  border: 1px solid rgba(0, 107, 95, 0.16);
+  border-radius: 8px;
+  padding: 7px 9px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.baby-bubble::before {
+  position: absolute;
+  top: 17px;
+  left: -5px;
+  width: 9px;
+  height: 9px;
+  border-bottom: 1px solid rgba(0, 107, 95, 0.16);
+  border-left: 1px solid rgba(0, 107, 95, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.baby-kicker {
+  margin: 0 0 2px;
+  color: var(--muted);
+  font-size: 0.64rem;
+  font-weight: 800;
+}
+
+#babyLine {
+  margin: 0;
+  color: var(--accent-strong);
+  font-size: 0.84rem;
+  font-weight: 900;
+  line-height: 1.28;
+  overflow-wrap: anywhere;
+}
+
 .eyebrow {
   margin: 0 0 4px;
   color: var(--muted);
@@ -204,16 +265,18 @@ h2 {
 
 .datetime-form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 10px;
 }
 
 .datetime-form label {
   display: block;
+  min-width: 0;
 }
 
 .datetime-form input {
   width: 100%;
+  min-width: 0;
   min-height: 48px;
   margin-top: 6px;
   border: 1px solid var(--line);
@@ -221,6 +284,13 @@ h2 {
   padding: 10px 11px;
   background: var(--surface);
   color: var(--ink);
+  font-size: 1rem;
+}
+
+.datetime-form input[type="date"],
+.datetime-form input[type="time"] {
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .button-row {
@@ -502,10 +572,20 @@ h2 {
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 430px) {
   .datetime-form,
   .button-row {
     grid-template-columns: 1fr;
+  }
+
+  .baby-card {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .baby-photo {
+    width: 42px;
+    height: 42px;
   }
 
   .departure-time {

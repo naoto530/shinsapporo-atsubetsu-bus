@@ -7,10 +7,10 @@
     <meta name="color-scheme" content="light">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="厚別東バス">
-    <meta name="application-name" content="厚別東バス">
-    <meta name="description" content="新札幌駅バスターミナルから厚別東4条4丁目周辺へ向かうバス検索PWA">
-    <title>厚別東4条4丁目 バス検索</title>
+    <meta name="apple-mobile-web-app-title" content="六花亭バス">
+    <meta name="application-name" content="六花亭バス">
+    <meta name="description" content="新札幌駅バスターミナルから六花亭周辺へ向かうバス検索PWA">
+    <title>六花亭周辺 バス検索</title>
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -22,13 +22,21 @@
       <header class="topbar">
         <div>
           <p class="eyebrow">新札幌駅バスターミナル発</p>
-          <h1>厚別東4条4丁目 周辺行き</h1>
+          <h1>六花亭周辺行き</h1>
         </div>
         <div class="signal" id="connectionSignal" aria-live="polite">
           <span class="signal-dot"></span>
           <span id="connectionText">確認中</span>
         </div>
       </header>
+
+      <section class="baby-card" aria-label="なーたんからのメッセージ">
+        <img class="baby-photo" src="assets/baby.png" alt="気をつけて帰ってきてねと待っている赤ちゃん">
+        <div class="baby-bubble">
+          <p class="baby-kicker">なーたんからひとこと</p>
+          <p id="babyLine">気をつけて帰ってきてね～！</p>
+        </div>
+      </section>
 
       <main>
         <section class="panel search-panel" aria-labelledby="searchTitle">

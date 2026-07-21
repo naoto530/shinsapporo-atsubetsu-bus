@@ -1,7 +1,7 @@
 {
-  "name": "厚別東4条4丁目 バス検索",
-  "short_name": "厚別東バス",
-  "description": "新札幌駅バスターミナルから厚別東4条4丁目周辺へ向かうバス検索",
+  "name": "六花亭周辺 バス検索",
+  "short_name": "六花亭バス",
+  "description": "新札幌駅バスターミナルから六花亭周辺へ向かうバス検索",
   "lang": "ja",
   "start_url": "./?source=pwa",
   "scope": "./",
