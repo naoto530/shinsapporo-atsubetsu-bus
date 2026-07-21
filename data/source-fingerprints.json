@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-07-21T03:06:17+00:00",
+  "sources": {
+    "chuo_gtfs": {
+      "label": "北海道中央バス GTFS",
+      "url": "https://ckan.hoda.jp/dataset/24d1dd70-5395-4d6b-b41f-0d83e8eabdb9/resource/dbadfccc-670e-49b9-be77-c3f346ee3160/download/hokkaido_chuo.zip",
+      "sha256": "05b25bc9ca01b3295d83d130d7f8a02d16245426ca859731530c18d3d8f8052e",
+      "size": 2133377,
+      "lastModified": "Thu, 02 Jul 2026 02:06:56 GMT",
+      "etag": "\"1782958016.26-2133377\"",
+      "feedInfo": {
+        "feed_publisher_name": "ジョルダン株式会社",
+        "feed_publisher_url": "https://www.jorudan.co.jp",
+        "feed_lang": "ja",
+        "feed_start_date": "20260701",
+        "feed_end_date": "20261231",
+        "feed_version": "2.0"
+      }
+    },
+    "yutetsu_gtfs": {
+      "label": "夕鉄バス GTFS",
+      "url": "https://ckan.hoda.jp/dataset/24d1dd70-5395-4d6b-b41f-0d83e8eabdb9/resource/594c9dd3-d356-4445-98e2-c480d49c9d65/download/yutetsu_bus.zip",
+      "sha256": "91f487eef4f0157c2605134364b1405b6da8940e2bbb1f1d7d99c0b369241297",
+      "size": 112331,
+      "lastModified": "Thu, 02 Jul 2026 02:09:56 GMT",
+      "etag": "\"1782958196.58-112331\"",
+      "feedInfo": {
+        "feed_publisher_name": "ジョルダン株式会社",
+        "feed_publisher_url": "https://www.jorudan.co.jp",
+        "feed_lang": "ja",
+        "feed_start_date": "20260701",
+        "feed_end_date": "20261231",
+        "feed_version": "2.0"
+      }
+    },
+    "jhb_no10_pdf": {
+      "label": "JR北海道バス No.10 PDF",
+      "url": "https://www.jrhokkaidobus.com/pdf/timetable/2026_04/10.pdf",
+      "sha256": "8234d2bf056ead25178c2a4fc642e0e427fde1d6bac4cd31173d75c30fe3024e",
+      "size": 1508048,
+      "lastModified": "Sat, 14 Mar 2026 09:27:19 GMT",
+      "etag": "",
+      "feedInfo": {}
+    }
+  }
+}

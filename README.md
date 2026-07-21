@@ -83,6 +83,24 @@ http://localhost:5173
 
 公開URLを家族に共有すれば、インストール不要でブラウザから利用できます。
 
+## ダイヤ改正の定期チェック
+
+GitHubに配置すると、`.github/workflows/check-timetable.yml` により公式データの定期チェックを実行できます。
+
+- 通常期: 週1回チェック
+- ダイヤ改正が多い時期: 3月、4月、9月、10月は毎日チェック
+- 手動実行: GitHub Actionsの `Check timetable sources` から `Run workflow`
+
+チェック内容は `scripts/check_timetable_updates.py` にまとめています。
+
+- 中央バス 白35 / 白38: GTFSから対象停留所の時刻を抽出し、変化があれば確認用Pull Requestを作成
+- 夕鉄バス: GTFSとPDF時刻表の便数差があるため、現時点では変更検知と確認メモのみ
+- JR北海道バス: 公式PDFの変更を検知し、変更時は手動確認
+
+Pull Requestを確認して問題なければマージします。VercelをGitHub連携していれば、マージ後に自動で再公開され、家族の端末にも最新版の `data/timetable.json` が反映されます。
+
+自動作成されるPull Requestは、GitHubユーザー `naoto530` を担当者・レビュアーに指定します。GitHubの通知設定やスマホアプリ通知を有効にしておくと、ダイヤ変更候補に気づきやすくなります。
+
 ## ホーム画面に追加
 
 iPhoneではSafariで公開URLを開き、共有ボタンから「ホーム画面に追加」を選びます。AndroidではChromeで公開URLを開き、メニューから「ホーム画面に追加」または「アプリをインストール」を選びます。
